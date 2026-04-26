@@ -1,5 +1,0 @@
-services:
-  qwen-asr-api:
-    build:
-      context: ..
-      dockerfile: Dockerfile

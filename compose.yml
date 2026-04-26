@@ -1,0 +1,41 @@
+services:
+  qwen-asr-api:
+
+    # --------------------------------------------------------
+    # IMAGE — choose one, comment out the others
+    # --------------------------------------------------------
+    image: arianpg/qwen-asr-api:cuda          # CUDA  (sm_75+, RTX series)
+    # image: arianpg/qwen-asr-api:cuda-legacy # CUDA legacy (sm_61+, GTX 1080 etc.)
+    # image: arianpg/qwen-asr-api:cpu         # CPU / Linux ARM64 / macOS Docker
+
+    # --------------------------------------------------------
+    # BUILD — uncomment to build locally instead of pulling
+    # --------------------------------------------------------
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile          # cuda
+    #   # dockerfile: Dockerfile.legacy # cuda-legacy
+    #   # dockerfile: Dockerfile.cpu    # cpu
+
+    container_name: qwen-asr-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DEVICE=cuda  # cuda / cpu / mps
+
+    # --------------------------------------------------------
+    # GPU — comment out when using cpu or mps
+    # --------------------------------------------------------
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    volumes:
+      - huggingface_cache:/root/.cache/huggingface
+
+volumes:
+  huggingface_cache:

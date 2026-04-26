@@ -61,32 +61,13 @@ Two Dockerfiles are provided:
 | `Dockerfile` | `pytorch/pytorch` (CUDA) | Linux x86_64 with NVIDIA GPU |
 | `Dockerfile.cpu` | `python:3.11-slim` (multi-arch) | Linux x86_64/ARM64, macOS (Docker) |
 
-Compose files are located in the `docker-compose/` directory:
-
-| File | Role |
-|---|---|
-| `docker-compose/compose.yml` | Base (ports, volumes) |
-| `docker-compose/compose.cuda.yml` | CUDA — pulls `arianpg/qwen-asr-api:cuda` from Docker Hub |
-| `docker-compose/compose.cpu.yml` | CPU — pulls `arianpg/qwen-asr-api:cpu` from Docker Hub |
-| `docker-compose/compose.dev.yml` | Build override for CUDA (local development) |
-| `docker-compose/compose.dev.cpu.yml` | Build override for CPU (local development) |
-| `docker-compose/compose.mps.yml` | MPS — for native macOS execution (non-Docker) |
+A single `compose.yml` is provided at the repository root. Edit the file to switch between configurations — IMAGE, BUILD, and GPU sections are marked with comments.
 
 > **Note:** MPS (Metal) is not accessible inside Docker on macOS as containers run in a Linux VM.
-> `docker-compose/compose.mps.yml` and `DEVICE=mps` are intended for running the server directly (outside Docker) on Apple Silicon.
+> Use `DEVICE=mps` only when running the server directly (outside Docker) on Apple Silicon.
 
 ```bash
-# Pull from Docker Hub — CUDA
-docker compose -f docker-compose/compose.yml -f docker-compose/compose.cuda.yml up
-
-# Pull from Docker Hub — CPU (Linux ARM64 / macOS Docker)
-docker compose -f docker-compose/compose.yml -f docker-compose/compose.cpu.yml up
-
-# Build locally — CUDA
-docker compose -f docker-compose/compose.yml -f docker-compose/compose.cuda.yml -f docker-compose/compose.dev.yml up --build
-
-# Build locally — CPU
-docker compose -f docker-compose/compose.yml -f docker-compose/compose.cpu.yml -f docker-compose/compose.dev.cpu.yml up --build
+docker compose up
 ```
 
 ## License

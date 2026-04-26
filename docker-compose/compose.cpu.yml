@@ -1,5 +1,0 @@
-services:
-  qwen-asr-api:
-    image: arianpg/qwen-asr-api:cpu
-    environment:
-      - DEVICE=cpu
