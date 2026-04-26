@@ -1,0 +1,41 @@
+This Docker image includes third-party software with the following licenses.
+
+--------------------------------------------------------------------------------
+qwen-asr (https://github.com/QwenLM/Qwen3-ASR)
+Copyright 2026 Alibaba Cloud
+Licensed under the Apache License, Version 2.0
+https://www.apache.org/licenses/LICENSE-2.0
+
+--------------------------------------------------------------------------------
+transformers (https://github.com/huggingface/transformers)
+Copyright 2018 The Hugging Face team
+Licensed under the Apache License, Version 2.0
+https://www.apache.org/licenses/LICENSE-2.0
+
+--------------------------------------------------------------------------------
+accelerate (https://github.com/huggingface/accelerate)
+Copyright 2021 The HuggingFace Inc. team
+Licensed under the Apache License, Version 2.0
+https://www.apache.org/licenses/LICENSE-2.0
+
+--------------------------------------------------------------------------------
+PyTorch (https://github.com/pytorch/pytorch)
+Copyright 2016-present Facebook Inc.
+Licensed under the BSD 3-Clause License
+https://github.com/pytorch/pytorch/blob/main/LICENSE
+
+--------------------------------------------------------------------------------
+FastAPI (https://github.com/fastapi/fastapi)
+Copyright 2018 Sebastián Ramírez
+Licensed under the MIT License
+
+--------------------------------------------------------------------------------
+uvicorn (https://github.com/encode/uvicorn)
+Copyright 2017-present Tom Christie
+Licensed under the BSD 3-Clause License
+https://github.com/encode/uvicorn/blob/master/LICENSE.md
+
+--------------------------------------------------------------------------------
+bitsandbytes (https://github.com/bitsandbytes-foundation/bitsandbytes)
+Copyright 2021 Tim Dettmers
+Licensed under the MIT License

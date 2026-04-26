@@ -1,0 +1,4 @@
+services:
+  qwen-asr-api:
+    environment:
+      - DEVICE=mps

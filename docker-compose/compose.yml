@@ -1,0 +1,10 @@
+services:
+  qwen-asr-api:
+    container_name: qwen-asr-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - huggingface_cache:/root/.cache/huggingface
+
+volumes:
+  huggingface_cache:
